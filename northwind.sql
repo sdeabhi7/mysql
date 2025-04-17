@@ -19,3 +19,10 @@ select employee_id, order_id, customer_id, required_date, shipped_date from orde
 
 select order_id from orders where order_id % 2 = 0;
 
+-- Show the city, company_name, contact_name of all customers from cities which contains the letter 'L' in the city name, sorted by contact_name
+
+select city, company_name, contact_name from customers where city like '%l%' order by contact_name;
+
+-- Show the company_name, contact_name, fax number of all customers that has a fax number. (not null)
+
+select company_name, contact_name, fax from customers where fax is not null;

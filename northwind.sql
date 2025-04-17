@@ -44,3 +44,13 @@ on p.supplier_id = s.supplier_id join categories c on p.category_id = c.category
 
 select c.category_name, round(avg(p.unit_price), 2) from products as p join categories as c 
 on p.category_id = c.category_id group by c.category_name;
+
+-- Show the city, company_name, contact_name from the customers and suppliers table merged together.
+-- Create a column which contains 'customers' or 'suppliers' depending on the table it came from.
+
+select city, company_name, contact_name, 'customers' as relationship from customers
+union select city, company_name, contact_name, 'suppliers' as relationship from suppliers;
+
+-- Show the total amount of orders for each year/month.
+
+select year(order_date), month(order_date), count(order_id) from orders group by year(order_date), month(order_date);

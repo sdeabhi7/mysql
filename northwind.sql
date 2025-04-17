@@ -34,3 +34,13 @@ select first_name, last_name, max(hire_date) from employees;
 -- Show the average unit price rounded to 2 decimal places, the total units in stock, total discontinued products from the products table.
 
 select round(avg(unit_price), 2), sum(units_in_stock), sum(discontinued) from products;
+
+-- Show the ProductName, CompanyName, CategoryName from the products, suppliers, and categories table
+
+select p.product_name, s.company_name, c.category_name from products as p join suppliers as s 
+on p.supplier_id = s.supplier_id join categories c on p.category_id = c.category_id;
+
+-- Show the category_name and the average product unit price for each category rounded to 2 decimal places.
+
+select c.category_name, round(avg(p.unit_price), 2) from products as p join categories as c 
+on p.category_id = c.category_id group by c.category_name;

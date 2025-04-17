@@ -71,3 +71,8 @@ from employees as e join orders as o
 on e.employee_id = o.employee_id
 group by e.first_name, e.last_name, shipped
 order by e.last_name, e.first_name, num_orders desc;
+
+-- Show how much money the company lost due to giving discounts each year, order the years from most recent to least recent. Round to 2 decimal places
+
+select year(o.order_date), round(sum(p.unit_price * od.quantity * od.discount), 2) from orders as o join order_details as od
+on o.order_id = od.order_id join products as p on p.product_id = od.product_id group by year(o.order_date) order by year(o.order_date) desc;

@@ -8,6 +8,7 @@ TopProducts AS (
     FROM ProductSales
     WHERE total_sales > 8000000000
 )
+
 SELECT p.product_id, p.product_name, ps.total_sales
 FROM TopProducts tp
 JOIN products p ON tp.product_id = p.product_id

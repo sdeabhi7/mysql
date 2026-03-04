@@ -1,4 +1,6 @@
-'''Query to Fetch the 2nd Highest Transaction Amount per User'''
+'''
+Query to Fetch the 2nd Highest Transaction Amount per User
+'''
 
 select userid, amount from 
 (
